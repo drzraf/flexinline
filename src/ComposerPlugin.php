@@ -51,7 +51,7 @@ class ComposerPlugin implements PluginInterface, EventSubscriberInterface
     public function activate(Composer $composer, IOInterface $io)
     {
         foreach (array_merge($composer->getPackage()->getRequires() ?? [], $composer->getPackage()->getDevRequires() ?? []) as $link) {
-            if ($link->getTarget() === 'kwivix/flexinline') {
+            if ($link->getTarget() === 'drzraf/flexinline') {
                 $this->enabled = true;
                 break;
             }
@@ -141,7 +141,7 @@ class ComposerPlugin implements PluginInterface, EventSubscriberInterface
         }
 
         if ($this->enabled === false) {
-            $this->io->writeError('<warning>Inline recipes are disabled: "kwivix/flexinline" not found in the root composer.json</warning>');
+            $this->io->writeError('<warning>Inline recipes are disabled: "drzraf/flexinline" not found in the root composer.json</warning>');
             return;
         }
 
