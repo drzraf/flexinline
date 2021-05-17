@@ -103,7 +103,7 @@ class ComposerPlugin implements PluginInterface, EventSubscriberInterface
     private function recipeFromPackage(OperationInterface $operation, PackageInterface $package): ?Recipe
     {
         $name = $package->getName();
-        $jobType = $operation->getJobType();
+        $jobType = $operation->getOperationType();
         $extra = $package->getExtra();
 
         $manifest = $extra[self::RECIPE_MANIFEST] ?? null;
